@@ -1,0 +1,2 @@
+webpackJsonp([6],{npnD:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"rabbit",render:function(e){return e("div",{},[e("iframe",{attrs:{src:"http://localhost:15672",width:"100%",height:"728px"}})])}}}});
+//# sourceMappingURL=6.11534199e1773e7aeca9.js.map

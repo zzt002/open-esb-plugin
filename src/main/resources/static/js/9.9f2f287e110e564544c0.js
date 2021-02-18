@@ -1,0 +1,2 @@
+webpackJsonp([9],{yyWI:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"api",render:function(e){return e("div",{},[e("iframe",{attrs:{src:"http://localhost:9090/swagger-ui.html",width:"100%",height:"728px"}})])}}}});
+//# sourceMappingURL=9.9f2f287e110e564544c0.js.map

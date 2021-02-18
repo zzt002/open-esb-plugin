@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//pper 3.0mybatis.org//DTD Ma//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dongdl.springboot1.dao.localdao.ITestMysqlDao">
+
+    <resultMap type="TestBean" id="TestBeanMap">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="test_date" property="testDate" />
+        <result column="test_param" property="testParam" />
+    </resultMap>
+
+    <select id="list"  resultType="TestBean">
+        select *
+        from test
+    </select>
+
+    <insert id="saveOne" parameterType="TestBean" useGeneratedKeys="true" keyProperty="id">
+    -- oralce 没有自增主键 故 useGeneratedkeys没有    mysql 有自增主键  可以true
+        insert into test(ip,content) values(#{ip},#{content})
+    </insert>
+
+    <select id="getOneByIp"  parameterType="String" resultType="TestBean">
+        select id,ip,content
+        from test where ip=#{ip}
+    </select>
+
+    <delete id="del">
+        delete from test where id=5;
+        delete from test where ip like '%9999';
+        delete from test where id=200;
+    </delete>
+
+    <insert id="saveBath" parameterType="java.util.List">
+        insert into test(name,test_date,test_param) values
+        <foreach collection="list" item="item" open="(" separator="),(" close=")">
+            #{item.name},#{item.testDate},#{item.testParam}
+        </foreach>
+    </insert>
+
+</mapper>

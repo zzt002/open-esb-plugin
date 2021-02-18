@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//pper 3.0mybatis.org//DTD Ma//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dongdl.springboot1.dao.idao.ITestOracleDao">
+
+    <select id="list"  resultType="TestBean">
+        select *
+        from test
+    </select>
+
+    <insert id="saveOne" parameterType="TestBean" useGeneratedKeys="false" keyProperty="id">
+    -- oralce 没有自增主键 故 useGeneratedkeys没有    mysql 有自增主键  可以true
+        insert into test(id,ip,content) values(seq_test.nextval,#{ip},#{content})
+    </insert>
+
+    <select id="getOneByIp"  parameterType="String" resultType="TestBean">
+        select id,ip,content
+        from test where ip=#{ip}
+    </select>
+
+    <delete id="del">
+        delete from test where id=5;
+        delete from test where ip like '%9999';
+        delete from test where id=200;
+    </delete>
+
+</mapper>
